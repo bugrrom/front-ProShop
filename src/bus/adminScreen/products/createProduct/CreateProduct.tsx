@@ -1,12 +1,12 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { ButtonGoBack } from "../../../../element/Button/ButtonGoback";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 import { ErrorMessages } from "../../../../element/Message/ErrorMessages/ErrorMessages";
 import styled from "@emotion/styled";
 import { useDispatch, useSelector } from "react-redux";
-import { createProduct } from "../action";
 import { AppState } from "../../../../init/rootReducer";
+import { addProduct } from "../action";
 
 const Container = styled.div`
   display: flex;
@@ -80,11 +80,19 @@ const Success = styled.div`
 
 export const CreateProduct: FC = () => {
   const dispatch = useDispatch();
-  const { loading, error, success } = useSelector(
-    (state: AppState) => state.removeProduct
-  );
+  const product = useSelector((state: AppState) => state.adminProduct);
+  const { success: productSuccess } = product;
+  const [success, setSuccess] = useState(false);
+  useEffect(() => {
+    if (productSuccess) {
+      setSuccess(true);
+      setTimeout(() => {
+        setSuccess(false);
+      }, 2000);
+    }
+  }, [productSuccess]);
   const onSubmit = (value: any) => {
-    dispatch(createProduct(value));
+    dispatch(addProduct(value));
   };
 
   const initialState = {
@@ -118,7 +126,7 @@ export const CreateProduct: FC = () => {
           })}
         >
           <Form onChange={(e) => e.preventDefault()}>
-            {error && <p>{error}</p>}
+            {false && <p>{"error"}</p>}
             <H3>create new product</H3>
             <InputWrapper>
               <Label htmlFor="name">Name</Label>
@@ -202,10 +210,10 @@ export const CreateProduct: FC = () => {
                 {(msg) => <ErrorMessages msg={msg} />}
               </ErrorMessage>
             </InputWrapper>
-            <Button disabled={loading} type="submit">
+            <Button disabled={false} type="submit">
               Create
             </Button>
-            <Success>Success</Success>
+            {success ? <Success>Success</Success> : null}
           </Form>
         </Formik>
       </Wrapper>

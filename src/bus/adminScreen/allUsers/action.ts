@@ -1,141 +1,170 @@
 import { Dispatch } from "redux";
 import {
-  ADMIN_EDIT_USER_FAIL,
-  ADMIN_EDIT_USER_REQUEST,
-  ADMIN_EDIT_USER_SUCCESS,
-  ADMIN_REMOVE_USER_FAIL,
-  ADMIN_REMOVE_USER_REQUEST,
-  ADMIN_REMOVE_USER_SUCCESS,
-  ADMIN_RESET_USER,
-  ADMIN_USER_FAIL,
-  ADMIN_USER_REQUEST,
-  ADMIN_USER_SUCCESS,
-  ADMIN_USERS_FAIL,
-  ADMIN_USERS_REQUEST,
-  ADMIN_USERS_SUCCESS,
+  FAIL_USERS_ADMIN,
+  FETCH_USERS_ADMIN,
+  REQUEST_EDIT_USERS_ADMIN,
+  REQUEST_USERS_ADMIN,
+  FETCH_USER_ADMIN,
+  RESET_USER_ADMIN,
+  REQUEST_DETAILS_USERS_ADMIN,
+  EDIT_USER_ADMIN,
+  REQUEST_REMOVE_USERS_ADMIN,
+  REMOVE_USER_ADMIN,
+  RESET_LOADING_USERS_ADMIN,
 } from "./types";
+import { apiFetch } from "../../../api/api";
+import { deepEqual } from "../../../utils/deepEqual";
 
 export const getAllUsers = () => async (dispatch: Dispatch, getState: any) => {
   try {
     dispatch({
-      type: ADMIN_USERS_REQUEST,
+      type: REQUEST_USERS_ADMIN,
     });
     const {
       userLogin: { userInfo },
+      adminUser: { allUsers },
     } = getState();
-    const configGet = {
-      method: "GET",
-      headers: {
-        Authorization: `Basic ${userInfo.token}`,
-      },
-    };
-    const response = await fetch(
-      `http://localhost:4000/api/user/users`,
-      configGet
-    );
-    const data = await response.json();
-    if (response.status !== 200 && 201) {
+    const response = await new apiFetch(userInfo.token).get("api/user/users");
+    if (response) {
+      const data = await response.json();
+      if (response.status !== 200 && 201) {
+        dispatch({
+          type: FAIL_USERS_ADMIN,
+          payload: data.message,
+        });
+      }
+      for (let i = 0; i <= data.length; i++) {
+        if (!deepEqual(allUsers[i], data[i])) {
+          dispatch({
+            type: FETCH_USERS_ADMIN,
+            payload: data,
+          });
+          break;
+        }
+      }
       dispatch({
-        type: ADMIN_USERS_FAIL,
-        payload: data.message,
+        type: RESET_LOADING_USERS_ADMIN,
       });
     }
-    dispatch({
-      type: ADMIN_USERS_SUCCESS,
-      payload: data,
-    });
   } catch (e) {
     dispatch({
-      type: ADMIN_USERS_FAIL,
+      type: FAIL_USERS_ADMIN,
       payload: e.message,
     });
   }
 };
 
-export const getUserByEdit = (values: any, id: string) => async (
+export const getUserByEdit = (id: string) => async (
   dispatch: Dispatch,
   getState: any
 ) => {
   try {
     dispatch({
-      type: ADMIN_EDIT_USER_REQUEST,
+      type: RESET_USER_ADMIN,
+    });
+    dispatch({
+      type: REQUEST_DETAILS_USERS_ADMIN,
     });
     const {
       userLogin: { userInfo },
     } = getState();
-    const configGet = {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Basic ${userInfo.token}`,
-      },
-      body: JSON.stringify(values),
-    };
-    const response = await fetch(
-      `http://localhost:4000/api/user/updateUser/${id}`,
-      configGet
-    );
-    const data = await response.json();
-    if (response.status !== 200 && 201) {
+    const response = await new apiFetch(userInfo.token).get(`api/user/${id}`);
+    if (response) {
+      const data = await response.json();
+      if (response.status !== 200 && 201) {
+        dispatch({
+          type: FAIL_USERS_ADMIN,
+          payload: data.message,
+        });
+      }
       dispatch({
-        type: ADMIN_EDIT_USER_FAIL,
-        payload: data.message,
+        type: FETCH_USER_ADMIN,
+        payload: data,
       });
     }
-    dispatch({
-      type: ADMIN_EDIT_USER_SUCCESS,
-    });
   } catch (e) {
     dispatch({
-      type: ADMIN_EDIT_USER_FAIL,
+      type: FAIL_USERS_ADMIN,
       payload: e.message,
     });
   }
 };
 
-export const getUserOneInfo = (id: string) => async (
+export const updateUser = (
+  values: { email: string; name: string; password: string },
+  id: string
+) => async (dispatch: Dispatch, getState: any) => {
+  try {
+    dispatch({
+      type: REQUEST_EDIT_USERS_ADMIN,
+    });
+    const {
+      userLogin: { userInfo },
+    } = getState();
+    const updateUser = {
+      ...values,
+      id,
+    };
+    const response = await new apiFetch(userInfo.token, updateUser).put(
+      `api/user/updateUser/${id}`
+    );
+    if (response) {
+      const data = await response.json();
+      if (response.status !== 200 && 201) {
+        dispatch({
+          type: FAIL_USERS_ADMIN,
+          payload: data.message,
+        });
+      }
+      dispatch({
+        type: EDIT_USER_ADMIN,
+        payload: updateUser,
+      });
+    }
+  } catch (e) {
+    dispatch({
+      type: FAIL_USERS_ADMIN,
+      payload: e.message,
+    });
+  }
+};
+
+export const deleteUser = (id: string) => async (
   dispatch: Dispatch,
   getState: any
 ) => {
   try {
     dispatch({
-      type: ADMIN_USER_REQUEST,
-    });
-    dispatch({
-      type: ADMIN_RESET_USER,
+      type: REQUEST_REMOVE_USERS_ADMIN,
     });
     const {
       userLogin: { userInfo },
     } = getState();
-    const configGet = {
-      method: "GET",
-      headers: {
-        Authorization: `Basic ${userInfo.token}`,
-      },
-    };
-    const response = await fetch(
-      `http://localhost:4000/api/user/${id}`,
-      configGet
+    const response = await new apiFetch(userInfo.token, { id }).delete(
+      "api/user/remove"
     );
-    const data = await response.json();
-    if (response.status !== 200 && 201) {
+    if (response) {
+      const data = await response.json();
+      if (response.status !== 200 && 201) {
+        dispatch({
+          type: FAIL_USERS_ADMIN,
+          payload: data.message,
+        });
+      }
       dispatch({
-        type: ADMIN_USER_FAIL,
-        payload: data.message,
+        type: REMOVE_USER_ADMIN,
+        payload: id,
       });
     }
-    dispatch({
-      type: ADMIN_USER_SUCCESS,
-      payload: data,
-    });
   } catch (e) {
     dispatch({
-      type: ADMIN_USER_FAIL,
+      type: FAIL_USERS_ADMIN,
       payload: e.message,
     });
   }
 };
 
+/*
 export const deleteUser = (id: string) => async (
   dispatch: Dispatch,
   getState: any
@@ -178,4 +207,4 @@ export const deleteUser = (id: string) => async (
       payload: e.message,
     });
   }
-};
+};*/

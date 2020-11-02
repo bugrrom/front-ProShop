@@ -98,23 +98,39 @@ const InputWrapper = styled.div`
   height: 115px;
 `;
 
+const Success = styled.div`
+  background-color: green;
+  text-align: center;
+  padding: 7px 0;
+  font-size: 18px;
+`;
+
 type typeProps = {
   onClick: () => void;
   productInfo: any;
   updateProduct: (value: any, id: string) => void;
+  successDetails: boolean;
 };
 
 export const ModalProduct: FC<typeProps> = memo(
-  ({ onClick, productInfo, updateProduct }: typeProps) => {
-    const [name] = useState(productInfo.product.name);
-    const [price] = useState(productInfo.product.price);
-    const [image] = useState(productInfo.product.image);
-    const [brand] = useState(productInfo.product.brand);
-    const [countInStock] = useState(productInfo.product.countInStock);
-    const [category] = useState(productInfo.product.category);
-    const [description] = useState(
-      productInfo.product.description
-    );
+  ({ onClick, productInfo, updateProduct, successDetails }: typeProps) => {
+    const [name] = useState(productInfo.name);
+    const [price] = useState(productInfo.price);
+    const [image] = useState(productInfo.image);
+    const [brand] = useState(productInfo.brand);
+    const [countInStock] = useState(productInfo.countInStock);
+    const [category] = useState(productInfo.category);
+    const [description] = useState(productInfo.description);
+    const [success, setSuccess] = useState(false);
+    console.log(successDetails)
+    useEffect(() => {
+      if (successDetails) {
+        setSuccess(true);
+        setTimeout(() => {
+          setSuccess(false);
+        }, 1000);
+      }
+    }, [successDetails]);
     const initialState = {
       name: name,
       price: price,
@@ -144,7 +160,7 @@ export const ModalProduct: FC<typeProps> = memo(
                 <Formik
                   initialValues={initialState}
                   onSubmit={(values) => {
-                    updateProduct(values, productInfo.product._id);
+                    updateProduct(values, productInfo._id);
                   }}
                   validationSchema={Yup.object({
                     name: Yup.string().required("Required"),
@@ -247,6 +263,7 @@ export const ModalProduct: FC<typeProps> = memo(
                     <Button disabled={false} type="submit">
                       Update
                     </Button>
+                    {success ? <Success>Success</Success> : null}
                   </Form>
                 </Formik>
               </FormUpdate>

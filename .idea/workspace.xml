@@ -2,27 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="46d57110-b728-4333-8981-74f1e9c6b156" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/robots.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.test.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/react-app-env.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/serviceWorker.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/setupTests.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bus/adminScreen/allUsers/Modal/ModalProfile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/bus/adminScreen/allUsers/Modal/ModalProfile.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bus/adminScreen/allUsers/Users.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/bus/adminScreen/allUsers/Users.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bus/adminScreen/allUsers/action.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/bus/adminScreen/allUsers/action.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bus/adminScreen/allUsers/reducers/removeUserAdminReducer.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bus/adminScreen/allUsers/reducers/userAdminReducer.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bus/adminScreen/allUsers/reducers/userEditAdminReducer.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bus/adminScreen/allUsers/reducers/usersAdminReducer.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bus/adminScreen/allUsers/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/bus/adminScreen/allUsers/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bus/adminScreen/products/Modal/ModalProduct.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/bus/adminScreen/products/Modal/ModalProduct.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bus/adminScreen/products/Produtcts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/bus/adminScreen/products/Produtcts.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bus/adminScreen/products/action.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/bus/adminScreen/products/action.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bus/adminScreen/products/createProduct/CreateProduct.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/bus/adminScreen/products/createProduct/CreateProduct.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bus/adminScreen/products/reducers/createProductReducer.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bus/adminScreen/products/reducers/editProductReducer.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bus/adminScreen/products/reducers/removeProductReducer.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bus/adminScreen/products/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/bus/adminScreen/products/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bus/homeScreen/action.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/bus/homeScreen/action.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/init/rootReducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/init/rootReducer.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +44,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.linters.configure.manually.selectedeslint" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Todo" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -59,17 +57,18 @@
     <property name="ts.external.directory.path" value="G:\задачи\Готовые проекты\ProShop\front-end\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="G:\задачи\Готовые проекты\ProShop\front-end\src\bus\adminScreen\Modal" />
-      <recent name="G:\задачи\Готовые проекты\ProShop\front-end\src\bus\placeOrderScreen" />
-      <recent name="G:\задачи\Готовые проекты\ProShop\front-end\src\bus\profileScreen\formUpdate" />
-      <recent name="G:\задачи\Готовые проекты\ProShop\front-end\src\element\Message" />
-      <recent name="G:\задачи\Готовые проекты\ProShop\front-end\src\element" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\задачи\Готовые проекты\ProShop\front-end\src\bus\adminScreen\products\Modal" />
       <recent name="G:\задачи\Готовые проекты\ProShop\front-end\src\bus\orderScreen\OrderSummary" />
       <recent name="G:\задачи\Готовые проекты\ProShop\front-end" />
       <recent name="G:\задачи\Готовые проекты\ProShop\front-end\src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\задачи\Готовые проекты\ProShop\front-end\src\bus\adminScreen\allUsers\reducers" />
+      <recent name="G:\задачи\Готовые проекты\ProShop\front-end\src\bus\adminScreen\allUsers" />
+      <recent name="G:\задачи\Готовые проекты\ProShop\front-end\src\bus\adminScreen\Modal" />
+      <recent name="G:\задачи\Готовые проекты\ProShop\front-end\src\bus\placeOrderScreen" />
+      <recent name="G:\задачи\Готовые проекты\ProShop\front-end\src\bus\profileScreen\formUpdate" />
     </key>
   </component>
   <component name="RunManager">
@@ -118,6 +117,8 @@
       <workItem from="1603093821737" duration="14622000" />
       <workItem from="1603111162220" duration="82642000" />
       <workItem from="1603449524323" duration="12413000" />
+      <workItem from="1603695931866" duration="66220000" />
+      <workItem from="1604299103117" duration="28646000" />
     </task>
     <servers />
   </component>
@@ -133,14 +134,15 @@
       <screen x="1920" y="0" width="1858" height="1080" />
     </state>
     <state x="2590" y="344" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1858.1080/1920.0.1858.1080@1920.0.1858.1080" timestamp="1602839710516" />
-    <state x="2579" y="288" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1602682071968">
-      <screen x="1920" y="0" width="1858" height="1080" />
-    </state>
-    <state x="2579" y="288" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1858.1080/1920.0.1858.1080@1920.0.1858.1080" timestamp="1602682071968" />
-    <state x="709" y="296" key="FileChooserDialogImpl" timestamp="1603370688484">
+    <state x="659" y="288" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1603788813358">
       <screen x="0" y="0" width="1858" height="1080" />
     </state>
-    <state x="709" y="296" key="FileChooserDialogImpl/0.0.1858.1080/1920.0.1858.1080@0.0.1858.1080" timestamp="1603370688484" />
+    <state x="659" y="288" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1858.1080/1920.0.1858.1080@0.0.1858.1080" timestamp="1603788813358" />
+    <state x="2579" y="288" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1858.1080/1920.0.1858.1080@1920.0.1858.1080" timestamp="1602682071968" />
+    <state x="709" y="296" key="FileChooserDialogImpl" timestamp="1604318624322">
+      <screen x="0" y="0" width="1858" height="1080" />
+    </state>
+    <state x="709" y="296" key="FileChooserDialogImpl/0.0.1858.1080/1920.0.1858.1080@0.0.1858.1080" timestamp="1604318624322" />
     <state x="2629" y="296" key="FileChooserDialogImpl/0.0.1858.1080/1920.0.1858.1080@1920.0.1858.1080" timestamp="1602685196052" />
     <state width="1837" height="300" key="GridCell.Tab.0.bottom" timestamp="1603111152046">
       <screen x="0" y="0" width="1858" height="1080" />
@@ -170,10 +172,10 @@
       <screen x="0" y="0" width="1858" height="1080" />
     </state>
     <state x="585" y="250" key="run.anything.popup/0.0.1858.1080/1920.0.1858.1080@0.0.1858.1080" timestamp="1603449544989" />
-    <state x="2512" y="235" width="672" height="678" key="search.everywhere.popup" timestamp="1603446851992">
-      <screen x="1920" y="0" width="1858" height="1080" />
+    <state x="592" y="235" width="672" height="678" key="search.everywhere.popup" timestamp="1603730556542">
+      <screen x="0" y="0" width="1858" height="1080" />
     </state>
-    <state x="592" y="235" width="672" height="678" key="search.everywhere.popup/0.0.1858.1080/1920.0.1858.1080@0.0.1858.1080" timestamp="1603111111910" />
+    <state x="592" y="235" width="672" height="678" key="search.everywhere.popup/0.0.1858.1080/1920.0.1858.1080@0.0.1858.1080" timestamp="1603730556542" />
     <state x="2512" y="235" width="672" height="678" key="search.everywhere.popup/0.0.1858.1080/1920.0.1858.1080@1920.0.1858.1080" timestamp="1603446851992" />
   </component>
 </project>

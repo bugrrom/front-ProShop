@@ -1,54 +1,84 @@
-export const ADMIN_REMOVE_PRODUCT_FAIL = "ADMIN_REMOVE_PRODUCT_FAIL";
-export type adminRemoveProductFail = {
-  type: typeof ADMIN_REMOVE_PRODUCT_FAIL;
-  payload: string;
+export const FETCH_PRODUCT_ADMIN = "FETCH_PRODUCT_ADMIN";
+export type fetchProductAdmin = {
+  type: typeof FETCH_PRODUCT_ADMIN;
+  payload: any[];
 };
-export const ADMIN_REMOVE_PRODUCT_REQUEST = "ADMIN_REMOVE_PRODUCT_REQUEST";
-export type adminRemoveProductRequest = {
-  type: typeof ADMIN_REMOVE_PRODUCT_REQUEST;
+
+export const ONE_PRODUCT_ADMIN = "ONE_PRODUCT_ADMIN";
+export type oneProductAdmin = {
+  type: typeof ONE_PRODUCT_ADMIN;
+  payload: any;
 };
-export const ADMIN_REMOVE_PRODUCT_SUCCESS = "ADMIN_REMOVE_PRODUCT_SUCCESS";
-export type adminRemoveProductSuccess = {
-  type: typeof ADMIN_REMOVE_PRODUCT_SUCCESS;
+
+export const RESET_LOADING_PRODUCT_ADMIN = "RESET_LOADING_PRODUCT_ADMIN";
+export type resetLoadingProductAdmin = {
+  type: typeof RESET_LOADING_PRODUCT_ADMIN;
+};
+export const RESET_ONE_PRODUCT_ADMIN = "RESET_ONE_PRODUCT_ADMIN";
+export type resetOneProductAdmin = {
+  type: typeof RESET_ONE_PRODUCT_ADMIN;
+  payload: any;
+};
+
+export const ADD_PRODUCT_ADMIN = "ADD_PRODUCT_ADMIN";
+export type addProductAdmin = {
+  type: typeof ADD_PRODUCT_ADMIN;
+};
+
+export const REMOVE_PRODUCT_ADMIN = "REMOVE_PRODUCT_ADMIN";
+export type removeProductAdmin = {
+  type: typeof REMOVE_PRODUCT_ADMIN;
   payload: string;
 };
 
-export const ADMIN_EDIT_PRODUCT_FAIL = "ADMIN_EDIT_PRODUCT_FAIL";
-export type adminEditProductFail = {
-  type: typeof ADMIN_EDIT_PRODUCT_FAIL;
-  payload: string;
-};
-export const ADMIN_EDIT_PRODUCT_REQUEST = "ADMIN_EDIT_PRODUCT_REQUEST";
-export type adminEditProductRequest = {
-  type: typeof ADMIN_EDIT_PRODUCT_REQUEST;
-};
-export const ADMIN_EDIT_PRODUCT_SUCCESS = "ADMIN_EDIT_PRODUCT_SUCCESS";
-export type adminEditProductSuccess = {
-  type: typeof ADMIN_EDIT_PRODUCT_SUCCESS;
-  payload: string;
+export const EDIT_PRODUCT_ADMIN = "EDIT_PRODUCT_ADMIN";
+export type editProductAdmin = {
+  type: typeof EDIT_PRODUCT_ADMIN;
+  payload: any;
 };
 
-export const ADMIN_CREATE_PRODUCT_FAIL = "ADMIN_CREATE_PRODUCT_FAIL";
-export type adminCreateProductFail = {
-  type: typeof ADMIN_CREATE_PRODUCT_FAIL;
+export const REQUEST_ALL_PRODUCT_ADMIN = "REQUEST_ALL_PRODUCT_ADMIN";
+export type requestAllProductAdmin = {
+  type: typeof REQUEST_ALL_PRODUCT_ADMIN;
+};
+
+export const REQUEST_ONE_PRODUCT_ADMIN = "REQUEST_ONE_PRODUCT_ADMIN";
+export type requestOneProductAdmin = {
+  type: typeof REQUEST_ONE_PRODUCT_ADMIN;
+};
+
+export const REQUEST_REMOVE_PRODUCT_ADMIN = "REQUEST_REMOVE_PRODUCT_ADMIN";
+export type requestRemoveProductAdmin = {
+  type: typeof REQUEST_REMOVE_PRODUCT_ADMIN;
+};
+
+export const REQUEST_EDIT_PRODUCT_ADMIN = "REQUEST_EDIT_PRODUCT_ADMIN";
+export type requestEditProductAdmin = {
+  type: typeof REQUEST_EDIT_PRODUCT_ADMIN;
+};
+
+export const REQUEST_ADD_PRODUCT_ADMIN = "REQUEST_ADD_PRODUCT_ADMIN";
+export type requestAddProductAdmin = {
+  type: typeof REQUEST_ADD_PRODUCT_ADMIN;
+};
+
+export const FAIL_PRODUCT_ADMIN = "FAIL_PRODUCT_ADMIN";
+export type failProductAdmin = {
+  type: typeof FAIL_PRODUCT_ADMIN;
   payload: string;
-};
-export const ADMIN_CREATE_PRODUCT_REQUEST = "ADMIN_CREATE_PRODUCT_REQUEST";
-export type adminCreateProductRequest = {
-  type: typeof ADMIN_CREATE_PRODUCT_REQUEST;
-};
-export const ADMIN_CREATE_PRODUCT_SUCCESS = "ADMIN_CREATE_PRODUCT_SUCCESS";
-export type adminCreateProductSuccess = {
-  type: typeof ADMIN_CREATE_PRODUCT_SUCCESS;
 };
 
 export type AdminActionProductType =
-  | adminRemoveProductFail
-  | adminRemoveProductRequest
-  | adminRemoveProductSuccess
-  | adminEditProductFail
-  | adminEditProductRequest
-  | adminEditProductSuccess
-  | adminCreateProductFail
-  | adminCreateProductRequest
-  | adminCreateProductSuccess;
+  | fetchProductAdmin
+  | addProductAdmin
+  | removeProductAdmin
+  | resetLoadingProductAdmin
+  | editProductAdmin
+  | requestAllProductAdmin
+  | requestOneProductAdmin
+  | requestRemoveProductAdmin
+  | requestAddProductAdmin
+  | requestEditProductAdmin
+  | failProductAdmin
+  | oneProductAdmin
+  | resetOneProductAdmin;

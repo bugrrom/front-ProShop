@@ -7,13 +7,8 @@ import { userRegisterReducer } from "../bus/authScreen/registration/registerRedu
 import { userUpdateReducer } from "../bus/profileScreen/profileUpdateReducer";
 import { orderReducer } from "../bus/placeOrderScreen/orderReducer";
 import { orderDetailsReducer } from "../bus/orderScreen/orderDetailsReducer";
-import { userListReducer } from "../bus/adminScreen/allUsers/reducers/usersAdminReducer";
-import { userDetailsReducer } from "../bus/adminScreen/allUsers/reducers/userAdminReducer";
-import { userEditAdminReducer } from "../bus/adminScreen/allUsers/reducers/userEditAdminReducer";
-import { userRemoveAdminReducer } from "../bus/adminScreen/allUsers/reducers/removeUserAdminReducer";
-import { removeProductReducer } from "../bus/adminScreen/products/reducers/removeProductReducer";
-import { editProductReducer } from "../bus/adminScreen/products/reducers/editProductReducer";
-import { createProductReducer } from "../bus/adminScreen/products/reducers/createProductReducer";
+import { adminProductReducer } from "../bus/adminScreen/products/productAdminReducer";
+import { adminUserReducer } from "../bus/adminScreen/allUsers/usersAdminReducer";
 
 export const rootReducer = combineReducers({
   products: productsReducer,
@@ -24,13 +19,8 @@ export const rootReducer = combineReducers({
   userUpdate: userUpdateReducer,
   order: orderReducer,
   orderDetails: orderDetailsReducer,
-  userList: userListReducer,
-  userDetails: userDetailsReducer,
-  userEditAdmin: userEditAdminReducer,
-  userRemoveAdmin: userRemoveAdminReducer,
-  removeProduct: removeProductReducer,
-  editProduct: editProductReducer,
-  createProduct: createProductReducer,
+  adminUser: adminUserReducer,
+  adminProduct: adminProductReducer,
 });
 
 export type AppState = ReturnType<typeof rootReducer>;

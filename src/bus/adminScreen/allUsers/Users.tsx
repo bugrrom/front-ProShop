@@ -2,14 +2,9 @@ import React, { FC, memo, useEffect, useState } from "react";
 import styled from "@emotion/styled";
 import { useDispatch, useSelector } from "react-redux";
 import { AppState } from "../../../init/rootReducer";
-import {
-  deleteUser,
-  getAllUsers,
-  getUserByEdit,
-  getUserOneInfo,
-} from "./action";
 import { ModalProfile } from "./Modal/ModalProfile";
 import { UserDashboard } from "./userDashboard/userDashboard";
+import { deleteUser, getAllUsers, getUserByEdit, updateUser } from "./action";
 
 const Container = styled.div`
   display: flex;
@@ -51,14 +46,15 @@ type typeProps = {
 };
 
 export const UsersAdmin: FC<typeProps> = memo(({ history }: typeProps) => {
-  const usersList = useSelector((state: AppState) => state.userList);
-  const { error, loading, allUser } = usersList;
-  const userDetails = useSelector((state: AppState) => state.userDetails);
-  const { error: errorDetails, user, loading: loadingDetails } = userDetails;
-  const editUser = useSelector((state: AppState) => state.userEditAdmin);
-  const { success } = editUser;
-  const delUser = useSelector((state: AppState) => state.userRemoveAdmin);
-  const { success: successRemove } = delUser;
+  const usersList = useSelector((state: AppState) => state.adminUser);
+  const {
+    allUsers,
+    error,
+    loadingUsers,
+    user,
+    loadingDetails,
+    successUpdate,
+  } = usersList;
   const userLogin = useSelector((state: AppState) => state.userLogin);
   const [activeModal, setActive] = useState(false);
   const { userInfo } = userLogin;
@@ -70,16 +66,20 @@ export const UsersAdmin: FC<typeProps> = memo(({ history }: typeProps) => {
     } else {
       history.push("/login");
     }
-  }, [dispatch, history, success, successRemove]);
+  }, [dispatch, history]);
   const closeModal = () => {
     setActive(false);
   };
   const editMode = (id: string) => {
     setActive(true);
-    dispatch(getUserOneInfo(id));
+    dispatch(getUserByEdit(id));
   };
-  const setUpdate = (values: any) => {
-    dispatch(getUserByEdit(values, user._id));
+  const setUpdate = (values: {
+    email: string;
+    name: string;
+    password: string;
+  }) => {
+    dispatch(updateUser(values, user._id));
   };
   const removeUser = (id: string) => {
     if (window.confirm("Are you sure?")) {
@@ -90,9 +90,9 @@ export const UsersAdmin: FC<typeProps> = memo(({ history }: typeProps) => {
     <Container>
       {activeModal ? (
         <ModalProfile
-          success={success}
+          successUpdate={successUpdate}
           loading={loadingDetails}
-          error={errorDetails}
+          error={error}
           onSubmit={setUpdate}
           name={user.name}
           email={user.email}
@@ -102,9 +102,9 @@ export const UsersAdmin: FC<typeProps> = memo(({ history }: typeProps) => {
       <Wrapper>
         <UserDashboard
           removeUser={removeUser}
-          loading={loading}
+          loading={loadingUsers}
           error={error}
-          users={allUser}
+          users={allUsers}
           editMode={editMode}
         />
       </Wrapper>

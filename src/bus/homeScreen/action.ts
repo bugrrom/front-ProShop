@@ -5,7 +5,6 @@ import {
 } from "./types";
 import { Dispatch } from "redux";
 import { apiFetch } from "../../api/api";
-import { ADMIN_EDIT_USER_FAIL } from "../adminScreen/allUsers/types";
 
 export const listProducts = () => async (dispatch: Dispatch) => {
   try {
@@ -16,7 +15,7 @@ export const listProducts = () => async (dispatch: Dispatch) => {
       data = await response.json();
       if (response.status !== 200 && 201) {
         dispatch({
-          type: ADMIN_EDIT_USER_FAIL,
+          type: PRODUCT_LIST_FAIL,
           payload: data.message,
         });
       }

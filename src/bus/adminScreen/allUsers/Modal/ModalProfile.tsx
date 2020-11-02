@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useEffect, useState } from "react";
 import styled from "@emotion/styled";
 import { FormUpdate } from "../../../profileScreen/formUpdate/FormUpdate";
 import { Message } from "../../../../element/Message/Message/Message";
@@ -39,7 +39,7 @@ type typeProps = {
   onSubmit: (values: any) => void;
   name: string;
   email: string;
-  success: boolean;
+  successUpdate: boolean;
 };
 
 const I = styled.i`
@@ -53,7 +53,7 @@ const I = styled.i`
 `;
 
 export const ModalProfile: FC<typeProps> = ({
-  success,
+  successUpdate,
   onClick,
   error,
   loading,
@@ -61,6 +61,15 @@ export const ModalProfile: FC<typeProps> = ({
   name,
   email,
 }: typeProps) => {
+  const [success, setSuccess] = useState(false);
+  useEffect(() => {
+    if (successUpdate) {
+      setSuccess(true);
+      setTimeout(() => {
+        setSuccess(false);
+      }, 1000);
+    }
+  }, [successUpdate]);
   return (
     <Modal>
       <ModelContext>

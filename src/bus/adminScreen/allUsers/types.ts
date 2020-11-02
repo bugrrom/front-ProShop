@@ -1,79 +1,69 @@
 import { user } from "../../profileScreen/profileUpdateReducer";
 
-export const ADMIN_USERS_FAIL = "ADMIN_USERS_FAIL";
-export type adminUsersFail = {
-  type: typeof ADMIN_USERS_FAIL;
-  payload: string;
-};
-export const ADMIN_USERS_REQUEST = "ADMIN_USERS_REQUEST";
-export type adminUsersRequest = {
-  type: typeof ADMIN_USERS_REQUEST;
-};
-export const ADMIN_USERS_SUCCESS = "ADMIN_USERS_SUCCESS";
-export type adminUsersSuccess = {
-  type: typeof ADMIN_USERS_SUCCESS;
+export const FETCH_USERS_ADMIN = "FETCH_USERS_ADMIN";
+export type fetchUsersAdmin = {
+  type: typeof FETCH_USERS_ADMIN;
   payload: user[];
 };
-
-export const ADMIN_EDIT_USER_FAIL = "ADMIN_EDIT_USER_FAIL";
-export type adminEditUserFail = {
-  type: typeof ADMIN_EDIT_USER_FAIL;
+export const RESET_LOADING_USERS_ADMIN = "RESET_LOADING_USERS_ADMIN";
+export type resetLoadingUsersAdmin = {
+  type: typeof RESET_LOADING_USERS_ADMIN;
+};
+export const RESET_USER_ADMIN = "RESET_USER_ADMIN";
+export type resetUserAdmin = {
+  type: typeof RESET_USER_ADMIN;
+};
+export const FETCH_USER_ADMIN = "FETCH_USER_ADMIN";
+export type fetchUserAdmin = {
+  type: typeof FETCH_USER_ADMIN;
+  payload: any;
+};
+export const EDIT_USER_ADMIN = "EDIT_USER_ADMIN";
+export type editUserAdmin = {
+  type: typeof EDIT_USER_ADMIN;
+  payload: any;
+};
+export const REMOVE_USER_ADMIN = "REMOVE_USER_ADMIN";
+export type removeUserAdmin = {
+  type: typeof REMOVE_USER_ADMIN;
   payload: string;
 };
-export const ADMIN_EDIT_USER_REQUEST = "ADMIN_EDIT_USER_REQUEST";
-export type adminEditUserRequest = {
-  type: typeof ADMIN_EDIT_USER_REQUEST;
+export const REQUEST_USERS_ADMIN = "REQUEST_USERS_ADMIN";
+export type requestUsersAdmin = {
+  type: typeof REQUEST_USERS_ADMIN;
 };
-export const ADMIN_EDIT_USER_SUCCESS = "ADMIN_EDIT_USER_SUCCESS";
-export type adminEditUserSuccess = {
-  type: typeof ADMIN_EDIT_USER_SUCCESS;
-  payload: user;
+export const REQUEST_REMOVE_USERS_ADMIN = "REQUEST_REMOVE_USERS_ADMIN";
+export type requestRemoveUsersAdmin = {
+  type: typeof REQUEST_REMOVE_USERS_ADMIN;
 };
-export const ADMIN_RESET_USER = "ADMIN_RESET_USER";
-export type adminResetUser = {
-  type: typeof ADMIN_RESET_USER;
+export const REQUEST_DETAILS_USERS_ADMIN = "REQUEST_DETAILS_USERS_ADMIN";
+export type requestDetailsUsersAdmin = {
+  type: typeof REQUEST_DETAILS_USERS_ADMIN;
 };
-
-export const ADMIN_REMOVE_USER_REQUEST = "ADMIN_REMOVE_USER_REQUEST";
-export type adminRemoveUserRequest = {
-  type: typeof ADMIN_REMOVE_USER_REQUEST;
+export const REQUEST_EDIT_USERS_ADMIN = "REQUEST_EDIT_USERS_ADMIN";
+export type requestEditUsersAdmin = {
+  type: typeof REQUEST_EDIT_USERS_ADMIN;
 };
-export const ADMIN_REMOVE_USER_SUCCESS = "ADMIN_REMOVE_USER_SUCCESS";
-export type adminRemoveUserSuccess = {
-  type: typeof ADMIN_REMOVE_USER_SUCCESS;
-  payload: user;
-};
-export const ADMIN_REMOVE_USER_FAIL = "ADMIN_REMOVE_USER_FAIL";
-export type adminRemoveUserFail = {
-  type: typeof ADMIN_REMOVE_USER_FAIL;
+export const FAIL_USERS_ADMIN = "FAIL_USERS_ADMIN";
+export type failUsersAdmin = {
+  type: typeof FAIL_USERS_ADMIN;
   payload: string;
 };
+export const RESET_USERS_ADMIN = "RESET_USERS_ADMIN";
+export type resetUsersAdmin = {
+  type: typeof RESET_USERS_ADMIN;
+};
 
-export const ADMIN_USER_FAIL = "ADMIN_USER_FAIL";
-export type adminUserFail = {
-  type: typeof ADMIN_USER_FAIL;
-  payload: string;
-};
-export const ADMIN_USER_SUCCESS = "ADMIN_USER_SUCCESS";
-export type adminUserSuccess = {
-  type: typeof ADMIN_USER_SUCCESS;
-  payload: user;
-};
-export const ADMIN_USER_REQUEST = "ADMIN_USER_REQUEST";
-export type adminUserRequest = {
-  type: typeof ADMIN_USER_REQUEST;
-};
 export type AdminActionType =
-  | adminUsersFail
-  | adminUsersRequest
-  | adminUsersSuccess
-  | adminEditUserFail
-  | adminEditUserRequest
-  | adminEditUserSuccess
-  | adminResetUser
-  | adminRemoveUserRequest
-  | adminRemoveUserSuccess
-  | adminRemoveUserFail
-  | adminUserFail
-  | adminUserSuccess
-  | adminUserRequest;
+  | fetchUsersAdmin
+  | fetchUserAdmin
+  | editUserAdmin
+  | resetUserAdmin
+  | resetLoadingUsersAdmin
+  | removeUserAdmin
+  | requestUsersAdmin
+  | requestRemoveUsersAdmin
+  | requestDetailsUsersAdmin
+  | requestEditUsersAdmin
+  | resetUsersAdmin
+  | failUsersAdmin;
